@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="../scripts/snake.js" defer></script>
+    <script src="../scripts/main.js" defer></script>
+    <title>E-learning</title>
+</head>
+
+<body class="home">
+    <header>
+        <nav> <!-- navbar by Zoheb -->
+            <img width="60px" height="60px" src="img/logo.webp" alt="logo">
+            <ul class="menu-area">
+                <li><a href="index.html" style="color: #48A7F5;">Home</a></li>
+                <li><a href="pages/resources.html">Resources</a></li>
+                <li><a href="pages/tips.html">Tips</a></li>
+                <li><a href="pages/survey.html">Survey</a></li>
+            </ul>
+            <svg class="burger" width="30" height="28">
+                <line class="line1" x1="2" y1="4" x2="28" y2="4" />
+                <line class="line2" x1="2" y1="14" x2="28" y2="14" />
+                <line class="line3" x1="2" y1="24" x2="28" y2="24" />
+            </svg>
+        </nav>
+        <div class="para-wrap"> <!-- Earl -->
+            <h1>E-learning</h1>
+            <p>
+                Learn how to research, study and teach yourself web development from the comfort of your home.
+                Explore our website for web dev resources and tips to ensure you see the improvements you want.
+            </p>
+        </div>
+        <a href="#game">
+            <svg class="cta" width="30" height="69" viewBox="0 0 30 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1.57227" y="1.88672" width="27" height="66" rx="13.5" stroke="white" stroke-width="2" />
+                <circle cx="14.7002" cy="15.1868" r="7.5" fill="white" />
+            </svg>
+        </a>
+    </header>
+
+    <section class="game" id="game"> <!-- Game by Zoheb -->
+        <span id="score-el">0</span>
+        <canvas width="100" height="100"></canvas>
+        <span id="game-over-text">Use WASD to move</span>
+        <button class="play-game-el">Start Game</button>
+    </section>
+    <!-- Rest of page by Earl -->
+    <section class="js-utils">
+        <h1>Thing's you can create with JavaScript</h1>
+        <p>
+            HTML, CSS and JavaScript are the technologies that power the web. You can start making amazing websites once
+            you have these skills in your arsenal. The bare minimum is HTML and CSS, once you know these two languages
+            you can start developing basic websites. JavaScript however opens up the door for more creative and
+            intuitive solutions which take your website to the next level. <br><br>
+            For example the game you may have played above was built using JavaScript. Using HTML Canvas and JavaScript
+            you can build your 2d games. Once You've mastered JavaScript you can even build a 3d game using a library
+            called ThreeJS. Don't worry about libraries for now, once you've got a hang of HTML, CSS and JavaScript look
+            into JavaScript frameworks and libraries. <br><br>
+            Below are some things you can create using JavaScript.</p>
+        <div class="info-container">
+            <div class="info-wrap">
+                <div class="icon-container">
+                    <img src="icons/web.svg">
+                </div>
+                <span>Websites</span>
+                <p>Websites can be built using just HTML and CSS. JS allows you to add interactivity. Our navbar
+                    changes transparency, this is done using JavaScript.</p>
+            </div>
+            <div class="info-wrap">
+                <div class="icon-container">
+                    <img src="icons/controller.svg">
+                </div>
+                <span>Games</span>
+                <p>We built snake using JavaScript. You can make 2d and 3d games using JavaScript. There's a wide range
+                    of YouTube tutorials that'll guide through the process.</p>
+            </div>
+            <div class="info-wrap">
+                <div class="icon-container">
+                    <img src="icons/phone.svg">
+                </div>
+                <span>Mobile Apps</span>
+                <p>Mobile apps were traditionally built using Java, a different language to JS. In
+                    recent years mobile apps have been built using React Native, a JS Framework.</p>
+            </div>
+            <div class="info-wrap">
+                <div class="icon-container">
+                    <img src="icons/web-app.svg">
+                </div>
+                <span>Web Apps</span>
+                <p>You probably use browser based applications like Google Maps and Deliveroo throughout our day. Many
+                    of these
+                    apps are built using JavaScript.</p>
+            </div>
+            <div class="info-wrap">
+                <div class="icon-container">
+                    <img src="icons/paint.svg">
+                </div>
+                <span>Art</span>
+                <p>HTML Canvas opened up the door for digital art to be created. We used it to create snake but it can
+                    also be used to create digital art.</p>
+            </div>
+            <div class="info-wrap">
+                <div class="icon-container">
+                    <img src="icons/server.svg">
+                </div>
+                <span>Server Applications</span>
+                <p>With the creation of Nodejs, JS could be run in the terminal/console. We can now build servers using
+                    JS and ExpressJS, a JS framework, to make things easier</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="learn-web">
+        <div class="learn-web-container">
+            <h1>Learning web development</h1>
+            <p>Web development is a good place to start before venturing into other JavaScript related fields like
+                Server managment and creating web apps. You will start with HTML, CSS and some basic JavaScript. After
+                you've built a few websites and have some experience under your belt, you can explore all that
+                JavaScript has to offer. Our website aims to help guide you through this learning process by providing
+                you with resources where you can learn in depth knowledge on HTML, CSS and JS. We will also provide you
+                tips on how you can teach yourself.</p>
+            <h2>Resources</h2>
+            <p>There's a wide variety of resources out there in order to help teach you to code. There are course
+                degrees which require you to attend University, there are also books for you to read. From online
+                courses to youtube videos, the internet has an abundance of information out there. Click the resources
+                page on the navbar to view the three types of resources that will help you learn how to code.</p>
+            <h2>Tips</h2>
+            <p>Whether you're attending University studying a computer related degree, or trying to learn how to code
+                without out formal training, you will need to learn how to teach and practice coding in your own time.
+                The IT field is an ever evolving field so you will have to continously learn new things, our tips page
+                will help you by providing useful, well... tips, on how to teach yourself new things.
+            </p>
+        </div>
+    </section>
+    <footer><span>Made by Zoheb, Mathew and Earl</span></footer>
+</body>
+
+</html>

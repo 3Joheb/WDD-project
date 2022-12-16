@@ -1,0 +1,1427 @@
+/*Design settings*/
+/*Zoheb*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --light-blue: #48A7F5;
+    --dark-blue: #0053A9;
+    --darker-blue: rgb(0, 20, 45);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Nav */
+/*Zoheb*/
+nav {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 20, 45, 0.5);
+    transition: background-color 1s;
+    z-index: 5;
+}
+
+nav ul {
+    list-style: none;
+    float: right;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav li a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 32px;
+    font-size: 20px;
+    position: relative;
+}
+
+nav li a:hover::after {
+    width: 100%;
+    transition: width 0.5s ease-out;
+}
+
+nav li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(3px);
+    width: 0;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--light-blue);
+    transition: 0.5s ease-in;
+}
+
+.nav svg line {
+    transition: all 0.3s ease;
+}
+
+.burger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-20px, 20px);
+    cursor: pointer;
+    z-index: 1;
+    background-color: var(--darker-blue);
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.burger line {
+    stroke-linecap: round;
+    stroke: var(--light-blue);
+    stroke-width: 3;
+}
+
+.line1,
+.line3 {
+    transition: 250ms;
+}
+
+.tapped .line1 {
+    transform-origin: 50%;
+    transform: rotate(45deg) translate(0, 11px);
+    transition: transform 250ms;
+}
+
+.tapped .line2 {
+    opacity: 0;
+}
+
+.tapped .line3 {
+    transform-origin: 50%;
+    transform: rotate(-45deg) translate(0, -9px);
+    transition: transform 250ms;
+}
+
+/* Footer */
+footer {
+    background-color: rgb(0, 10, 24);
+}
+
+footer span {
+    display: block;
+    text-align: center;
+    color: #fff;
+    padding: 16px;
+}
+
+/*-- Home Page --*/
+/*Earl*/
+/* Header */
+
+.home header {
+    position: relative;
+    height: 100vh;
+    max-height: 1080px;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.9) 40%, rgba(0, 0, 0, 0.6) 80%), url("img/wireframe-notes.webp") no-repeat;
+    background-size: cover;
+    background-position: center center;
+    z-index: 1;
+}
+
+.home .para-wrap {
+    display: flex;
+    max-width: 100%;
+    height: 80%;
+    margin: 0 32px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.home header h1 {
+    margin-bottom: 0;
+    font-size: clamp(40px, 3vw, 90px);
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.home header p {
+    max-width: 640px;
+    font-size: clamp(18px, 1.15vw, 40px);
+    text-align: center;
+}
+
+.home .cta {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -20px);
+    cursor: pointer;
+}
+
+.home .cta circle {
+    animation-name: down;
+    animation-duration: 1.5s;
+    animation-delay: 1s;
+    animation-iteration-count: 2;
+    transition: ease-out 500ms;
+}
+
+.home .cta:hover circle {
+    transform: translateY(57%);
+    transition: ease-out 500ms;
+}
+
+@keyframes down {
+
+    from,
+    to {
+        transform: translateY(0%);
+    }
+
+    50% {
+        transform: translateY(57%);
+    }
+}
+
+/* Game */
+/*Zoheb*/
+.home .game {
+    position: relative;
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .game canvas {
+    background-color: var(--light-blue);
+    display: block;
+    border: 16px solid #1b92f3;
+}
+
+.home #game-over-text {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 48px;
+    font-weight: 900;
+    max-width: 300px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0);
+    -webkit-text-stroke: 2px black;
+}
+
+.home #score-el {
+    font-size: 30px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0);
+    -webkit-text-stroke: 2px black;
+}
+
+.home .play-game-el {
+    width: 160px;
+    height: 48px;
+    margin-top: 8px;
+    background-color: var(--light-blue);
+    border: 2px solid var(--dark-blue);
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.home .play-game-el:hover {
+    background-color: #3883c0;
+    cursor: pointer;
+}
+
+/* JS Utility*/
+.home .js-utils {
+    margin: 0 32px;
+}
+
+.home .js-utils>h1 {
+    font-size: 36px;
+    color: var(--dark-blue);
+    text-align: center;
+    font-weight: 500;
+}
+
+.home .js-utils>p {
+    max-width: 980px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.home .info-wrap {
+    max-width: 304px;
+}
+
+.home .info-wrap span {
+    display: block;
+    color: var(--light-blue);
+    font-weight: 600;
+    margin: 8px 0;
+}
+
+.home .info-container {
+    display: grid;
+    max-width: 1200px;
+    margin: 32px auto;
+    justify-items: center;
+    grid-gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.home .icon-container {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: #E8F2FA;
+    border-radius: 50%;
+}
+
+.home .icon-container img {
+    position: absolute;
+    width: 32px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Learn web*/
+.home .learn-web h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+
+.home .learn-web h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--light-blue);
+}
+
+.home .learn-web {
+    margin: 64px 32px;
+}
+
+.home .learn-web-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/*-- Tips Page  --*/
+/*Zoheb*/
+/* Header */
+
+.tips header {
+    position: relative;
+    background: radial-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url("img/ipad-notes.webp") no-repeat;
+    background-size: cover;
+    height: 696px;
+    color: #ffffff;
+    z-index: 1;
+}
+
+.tips header .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tips header .content>h1 {
+    width: fit-content;
+    font-size: 48px;
+}
+
+.tips header .content>p {
+    max-width: 1135px;
+    margin: 0 32px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.tips header .tags-container {
+    display: grid;
+    padding-top: 80px;
+    margin: 0 32px;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5vw;
+}
+
+.tips header .tags h4 {
+    text-align: center;
+    margin: 0;
+    font-size: 20px;
+}
+
+.tips header .tags p {
+    max-width: 240px;
+    text-align: center;
+}
+
+/* Responsibility */
+.tips .responsibility {
+    margin: 32px 32px;
+}
+
+.tips .responsibility h1 {
+    max-width: 815px;
+    color: var(--dark-blue);
+    font-weight: 500;
+    font-size: 36px;
+    margin: 16px auto;
+}
+
+.tips .responsibility h2 {
+    max-width: 815px;
+    color: var(--light-blue);
+    font-weight: 500;
+    font-size: 28px;
+    margin: 16px auto;
+}
+
+.tips .responsibility p {
+    max-width: 815px;
+    margin: 0 auto;
+}
+
+/* Projects */
+.tips .projects {
+    margin: 32px 32px;
+}
+
+.tips .projects h1 {
+    width: fit-content;
+    margin: 8px auto;
+    font-size: 42px;
+    font-weight: 500;
+    color: var(--dark-blue);
+}
+
+.tips .projects p {
+    max-width: 926px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+}
+
+.tips .projects .gallery {
+    max-width: 1016px;
+    margin: 0 auto;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.tips .projects figure {
+    grid-column: span 3;
+    position: relative;
+}
+
+.tips .projects figure.active {
+    grid-column: 1 / span 6;
+    grid-row: 1;
+    order: 0;
+    height: auto;
+}
+
+.tips .projects figure.inactive {
+    grid-column: span 2;
+}
+
+.tips .projects figure.active .img-container {
+    visibility: hidden;
+}
+
+.tips .projects .img-container {
+    position: relative;
+    width: 428px;
+    max-width: 100%;
+    height: 288px;
+    max-height: 100%;
+    border-radius: 16px;
+    background-color: rgba(72, 167, 245, 0.5);
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+    transition: scale 0.25s ease-out;
+}
+
+.tips .projects .img-container img {
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    object-fit: contain;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#tnt-img,
+#tnt-img {
+    width: 70%;
+}
+
+#list-img {
+    object-position: 65%;
+}
+
+.tips .projects .img-container:hover {
+    scale: 1.025;
+    cursor: pointer;
+}
+
+.tips .projects .gallery-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    max-height: 288px;
+    height: 100%;
+    background-color: rgba(72, 167, 245, 0.5);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+    visibility: hidden;
+    transition: scale 0.25s ease-out;
+}
+
+.tips .projects .gallery-content:hover {
+    scale: 1.01;
+    cursor: pointer;
+}
+
+.tips .gallery-content h4 {
+    font-size: 20px;
+}
+
+.tips .gallery-content p {
+    max-width: 800px;
+}
+
+.tips .projects figcaption {
+    color: var(--light-blue);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* Research */
+.tips .research {
+    margin: 0 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tips .research .intro h1 {
+    width: fit-content;
+    margin: 8px auto;
+    font-size: 42px;
+    font-weight: 500;
+    color: var(--dark-blue);
+}
+
+.tips .research .intro p {
+    max-width: 814px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+}
+
+.tips .websites {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 140px 0;
+}
+
+.tips .website-content,
+.tips .research .img-container {
+    margin: 0 16px;
+}
+
+.tips .research .img-container img {
+    border-radius: 16px;
+    border: 2px solid #afafaf7e;
+}
+
+.tips .website-content h4 {
+    color: var(--light-blue);
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.tips .website-content p {
+    max-width: 534px;
+}
+
+@media only screen and (max-width: 1036px) {
+
+    /* Header */
+    .tips header .content {
+        height: 100%;
+    }
+
+    /* Projects */
+    .tips figure {
+        margin: 16px 20px;
+    }
+
+    .tips .projects figcaption {
+        font-size: 15px;
+    }
+
+    /* Research */
+    .tips .websites {
+        flex-direction: column-reverse;
+        margin: 40px 0;
+    }
+
+    .tips .website-content,
+    .tips .research .img-container {
+        margin: 0;
+    }
+
+    .tips .websites .img-container img {
+        width: 100%;
+        height: 50%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    /* Nav */
+    nav {
+        width: 100%;
+    }
+
+    nav img {
+        display: none;
+    }
+
+    nav li {
+        margin: 20px 0;
+        ;
+    }
+
+    nav li a {
+        font-size: 40px;
+    }
+
+    .menu-area {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--darker-blue);
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        transform: translateX(100%);
+        transition: transform 500ms ease-in-out;
+    }
+
+    .nav-active {
+        transform: translateX(0);
+    }
+
+    .menu-area li {
+        opacity: 0;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    /* Header */
+    .tips header {
+        height: 596px;
+    }
+
+    .tips header .content {
+        height: 100%;
+    }
+
+    .tips header .content>h1 {
+        font-size: 40px;
+        margin: 40px 16px;
+        text-align: center;
+    }
+
+    .tips header .content>p {
+        display: none;
+    }
+
+    .tips header .tags-container {
+        padding-top: 0;
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    /* Projects */
+    .tips .projects .gallery {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tips .projects figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .tips .projects .gallery-content {
+        max-width: 428px;
+        left: initial;
+    }
+}
+
+/*-- Resources --*/
+/* Mathew */
+/*positioning and styling of the header*/
+.resources .header {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    background: radial-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('img/laptop-notes.webp');
+    width: 100%;
+    height: 70%;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+/*first main heading*/
+.resources .Free {
+    position: absolute;
+    top: 78%;
+    left: 30%;
+    width: 40%;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/*first resource*/
+.resources .Tube {
+    position: absolute;
+    top: 140%;
+    left: 3%;
+    width: 40%;
+    height: 35%;
+    border: none;
+    border-radius: 5px;
+}
+
+/*linked picture to Youtube*/
+.resources .pic1 {
+    position: absolute;
+    top: 130%;
+    left: 47%;
+    width: 52%;
+    height: 58%;
+    border: none;
+    border-radius: 5px;
+}
+
+/*dimensions for the picture in the div tag*/
+.resources .pic1 img {
+    width: 100%;
+    height: 100%;
+}
+
+/*second resource*/
+.resources .Khan {
+    position: absolute;
+    top: 218%;
+    left: 58%;
+    width: 40%;
+    height: 35%;
+    border: none;
+    border-radius: 5px;
+}
+
+/*linked picture to Khan Academy*/
+.resources .pic2 {
+    position: absolute;
+    top: 207%;
+    left: 3%;
+    width: 52%;
+    height: 58%;
+    border: none;
+    border-radius: 5px;
+}
+
+/*dimensions for the picture in the div tag*/
+.resources .pic2 img {
+    width: 100%;
+    height: 100%;
+}
+
+/*second main heading*/
+.resources .Paid {
+    position: absolute;
+    top: 278%;
+    left: 30%;
+    width: 40%;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/*third resource*/
+.resources .Udemy {
+    position: absolute;
+    top: 340%;
+    left: 3%;
+    width: 40%;
+    height: 35%;
+    border: none;
+    border-radius: 5px;
+}
+
+/*linked picture to Udemy*/
+.resources .pic3 {
+    position: absolute;
+    top: 330%;
+    left: 47%;
+    width: 52%;
+    height: 58%;
+    border: none;
+    border-radius: 5px;
+}
+
+/*dimensions for the picture in the div tag*/
+.resources .pic3 img {
+    width: 100%;
+    height: 100%;
+}
+
+/*fourth resource*/
+.resources .Skill {
+    position: absolute;
+    top: 418%;
+    left: 58%;
+    width: 40%;
+    height: 35%;
+    border: none;
+    border-radius: 5px;
+}
+
+/*linked picture to Skillshare*/
+.resources .pic4 {
+    position: absolute;
+    top: 407%;
+    left: 3%;
+    width: 52%;
+    height: 58%;
+    border: none;
+    border-radius: 5px;
+}
+
+/*dimensions for the picture in the div tag*/
+.resources .pic4 img {
+    width: 100%;
+    height: 100%;
+}
+
+/*final main heading*/
+.resources .online {
+    position: absolute;
+    top: 480%;
+    left: 30%;
+    width: 40%;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/*fifth resource*/
+.resources .coursera {
+    position: absolute;
+    top: 542%;
+    left: 3%;
+    width: 40%;
+    height: 35%;
+    border: none;
+    border-radius: 5px;
+}
+
+/*linked picture to Coursera*/
+.resources .pic5 {
+    position: absolute;
+    top: 532%;
+    left: 47%;
+    width: 52%;
+    height: 58%;
+    border: none;
+    border-radius: 5px;
+}
+
+/*dimensions for the picture in the div tag*/
+.resources .pic5 img {
+    width: 100%;
+    height: 100%;
+}
+
+/*sixth resource*/
+.resources .udacity {
+    position: absolute;
+    top: 620%;
+    left: 58%;
+    width: 40%;
+    height: 35%;
+    border: none;
+    border-radius: 5px;
+}
+
+/*linked picture to Udacity*/
+.resources .pic6 {
+    position: absolute;
+    top: 609%;
+    left: 3%;
+    width: 52%;
+    height: 58%;
+    border: none;
+    border-radius: 5px;
+}
+
+/*dimensions for the picture in the div tag*/
+.resources .pic6 img {
+    width: 100%;
+    height: 100%;
+}
+
+/*styling of the title*/
+.resources .heading {
+    position: absolute;
+    top: 20%;
+    left: 33%;
+}
+
+/*styling of main headings*/
+.resources .heading1 {
+    color: #0053A9;
+}
+
+/*styling of resource titles*/
+.resources .heading2 {
+    color: #48A7F5;
+}
+
+/*styling of title paragraph*/
+.resources .para {
+    position: absolute;
+    top: 40%;
+    left: 0%;
+    text-align: center;
+}
+
+/*mobile phone screens*/
+@media only screen and (max-width: 600px) {
+
+    /*positioning and styling of the header*/
+    .resources .header {
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        background: radial-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('laptop-notes.webp');
+        width: 100%;
+        height: 70%;
+        background-size: cover;
+        color: white;
+        text-align: center;
+    }
+
+    /*first main heading*/
+    .resources .Free {
+        position: absolute;
+        top: 78%;
+        left: 25%;
+        width: 50%;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    /*first resource*/
+    .resources .Tube {
+        position: absolute;
+        top: 170%;
+        left: 25%;
+        width: 50%;
+        height: 35%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /*linked picture to Youtube*/
+    .resources .pic1 {
+        position: absolute;
+        top: 250%;
+        left: 15%;
+        width: 70%;
+        height: 38%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /*dimensions for the picture in the div tag*/
+    .resources .pic1 img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /*second resource*/
+    .resources .Khan {
+        position: absolute;
+        top: 315%;
+        left: 25%;
+        width: 50%;
+        height: 35%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /*linked picture to Khan Academy*/
+    .resources .pic2 {
+        position: absolute;
+        top: 395%;
+        left: 15%;
+        width: 70%;
+        height: 38%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /*dimensions for the picture in the div tag*/
+    .resources .pic2 img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /*second main heading*/
+    .resources .Paid {
+        position: absolute;
+        top: 480%;
+        left: 25%;
+        width: 50%;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    /*third resource*/
+    .resources .Udemy {
+        position: absolute;
+        top: 572%;
+        left: 25%;
+        width: 50%;
+        height: 35%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /*linked picture to Udemy*/
+    .resources .pic3 {
+        position: absolute;
+        top: 652%;
+        left: 15%;
+        width: 70%;
+        height: 38%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /*dimensions for the picture in the div tag*/
+    .resources .pic3 img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /*fourth resource*/
+    .resources .Skill {
+        position: absolute;
+        top: 717%;
+        left: 25%;
+        width: 50%;
+        height: 35%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /*linked picture to Skillshare*/
+    .resources .pic4 {
+        position: absolute;
+        top: 797%;
+        left: 15%;
+        width: 70%;
+        height: 38%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /*dimensions for the picture in the div tag*/
+    .resources .pic4 img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /*final main heading*/
+    .resources .online {
+        position: absolute;
+        top: 882%;
+        left: 25%;
+        width: 50%;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    /*fifth resource*/
+    .resources .coursera {
+        position: absolute;
+        top: 974%;
+        left: 25%;
+        width: 50%;
+        height: 38%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /*linked picture to Coursera*/
+    .resources .pic5 {
+        position: absolute;
+        top: 1054%;
+        left: 15%;
+        width: 70%;
+        height: 38%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /*dimensions for the picture in the div tag*/
+    .resources .pic5 img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /*sixth resource*/
+    .resources .udacity {
+        position: absolute;
+        top: 1119%;
+        left: 25%;
+        width: 50%;
+        height: 35%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /*linked picture to Udacity*/
+    .resources .pic6 {
+        position: absolute;
+        top: 1199%;
+        left: 15%;
+        width: 70%;
+        height: 38%;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /*dimensions for the picture in the div tag*/
+    .resources .pic6 img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /*styling of the title*/
+    .resources .heading {
+
+        position: absolute;
+        top: 20%;
+        left: 33%;
+    }
+
+    /*styling of main headings*/
+    .resources .heading1 {
+        color: #0053A9;
+
+    }
+
+    /*styling of resource titles*/
+    .resources .heading2 {
+
+        color: #48A7F5;
+    }
+
+    /*styling of title paragraph*/
+    .resources .para {
+
+        position: absolute;
+        top: 40%;
+        left: 0%;
+        text-align: center;
+    }
+}
+
+/* Survey */
+/* Mathew */
+/*Header positioning and color*/
+.survey .header {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    background: radial-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('img/survey-header.webp');
+    width: 100%;
+    height: 70%;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+/*Title positoning and font*/
+.survey .heading {
+    position: absolute;
+    top: 20%;
+    left: 42%;
+}
+
+/* Main heading*/
+.survey .heading1 {
+    color: #48A7F5;
+    font-family: 'Inter', sans-serif
+}
+
+/*questions*/
+.survey .heading2 {
+    color: #0053A9;
+}
+
+/*Title paragraph*/
+.survey .para {
+    position: absolute;
+    top: 40%;
+    left: 0%;
+    text-align: center;
+}
+
+/*survey positioning*/
+.survey .form {
+    position: absolute;
+    top: 78%;
+    left: 12%;
+    text-align: center;
+}
+
+/*hiding error message when not needed*/
+.survey .small {
+    visibility: hidden;
+}
+
+/*blue tick appears if the entry is valid*/
+.survey .form-control.success i.fa-circle-check {
+    visibility: visible;
+    color: #48A7F5;
+}
+
+/*red exclamation icon appears if the entry is invalid*/
+.survey .form-control.error i.fa-circle-exclamation {
+    visibility: visible;
+    color: #e74c3c;
+}
+
+/*red error message appears if the entry is invalid*/
+.survey .form-control.error small {
+    visibility: visible;
+    color: #e74c3c;
+}
+
+/*styling and dimensions of the button*/
+.survey .form button {
+    background-color: white;
+    border: none;
+    width: 75%;
+    padding: 10px;
+    font-size: 20px;
+    color: #0053A9;
+}
+
+/*font and position of the forms content*/
+.survey .formcontent {
+    text-align: center;
+    display: block;
+}
+
+/*hiding both icons when not needed*/
+.survey .formcontent i {
+    visibility: hidden;
+}
+
+/*underline for the button*/
+.survey .form button:hover::after {
+    width: 100%;
+    transition: width 0.5s ease-out;
+}
+
+.survey .form button::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(3px);
+    width: 0;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--light-blue);
+    transition: 0.5s ease-in;
+}
+
+.survey input[type=text] {
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+@media only screen and (max-width: 600px) {
+    .survey .header {
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        background: radial-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('img/survey-header.webp');
+        width: 100%;
+        height: 70%;
+        background-size: cover;
+        color: white;
+        text-align: center;
+    }
+
+    .survey .heading {
+
+        position: absolute;
+        top: 20%;
+        left: 42%;
+    }
+
+    .survey .heading1 {
+        color: #48A7F5;
+        font-family: 'Inter', sans-serif
+    }
+
+    .survey .heading2 {
+
+        color: #0053A9;
+    }
+
+    .survey .para {
+
+        position: absolute;
+        top: 40%;
+        left: 0%;
+        text-align: center;
+    }
+
+    .survey .form {
+        position: absolute;
+        top: 78%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .survey small {
+        visibility: hidden;
+    }
+
+    .survey .form-control.success i.fa-circle-check {
+        visibility: visible;
+        color: #48A7F5;
+    }
+
+    .survey .form-control.error i.fa-circle-exclamation {
+        visibility: visible;
+        color: #e74c3c;
+    }
+
+    .survey .form-control.error small {
+        visibility: visible;
+        color: #e74c3c;
+    }
+
+    .survey .form button {
+        background-color: white;
+        border: none;
+        width: 75%;
+        padding: 10px;
+        font-size: 20px;
+        color: #0053A9;
+    }
+
+    .survey .formcontent {
+        text-align: center;
+        display: block;
+    }
+
+    .survey .formcontent i {
+        visibility: hidden;
+    }
+
+    .survey .form button:hover::after {
+        width: 100%;
+        transition: width 0.5s ease-out;
+    }
+
+    .survey .form button::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: translateY(3px);
+        width: 0;
+        height: 3px;
+        border-radius: 3px;
+        background-color: var(--light-blue);
+        transition: 0.5s ease-in;
+    }
+
+    .survey input[type=text] {
+        border: none;
+        border-bottom: 2px solid black;
+    }
+}
